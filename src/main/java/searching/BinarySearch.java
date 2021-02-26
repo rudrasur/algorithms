@@ -8,6 +8,8 @@ public class BinarySearch {
             System.out.println("LOOPING: Element: " + key + " found at: " + looping(input, key));
             System.out.println("RECURSIVE: Element: " + key + " found at: " + recursive(input, key, 0, input.length-1));
         }
+        System.out.println("LOOPING: Element: " + 20 + " found at: " + looping(input, 20));
+        System.out.println("RECURSIVE: Element: " + 20 + " found at: " + recursive(input, 20, 0, input.length-1));
     }
 
     private static int looping(int[] array, int key) {
@@ -35,7 +37,7 @@ public class BinarySearch {
             if (array[mid] > key) {
                 return recursive(array, key, low, mid-1);
             }
-           return recursive(array, key, mid+1, high);
+            return recursive(array, key, mid+1, high);
         }
         return -1;
     }
