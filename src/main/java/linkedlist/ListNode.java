@@ -6,6 +6,10 @@ public class ListNode {
 
     public ListNode next;
 
+    public ListNode() {
+
+    }
+
     public ListNode(int val) {
         this. val = val;
     }
@@ -20,9 +24,14 @@ public class ListNode {
 
         String out = "";
         ListNode current = this;
-        while (current != null) {
-            out += current.val + " ";
+        while (true) {
+            out += current.val;
             current = current.next;
+            if (current != null) {
+                out += "->";
+            } else {
+                break;
+            }
         }
         return out;
     }
