@@ -1,13 +1,14 @@
 package linkedlist;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class RemoveDups {
 
     public static void main(String[] args) {
         //[3, 2, 1, 2, 4, 1]
-        ListNode head = new ListNode(3, new ListNode(2, new ListNode(1, new ListNode(2, new ListNode(4, new ListNode(1))))));
+        ListNode head = ListUtils.creatList(new Integer[]{3,2,1,2,4,1});
 
         System.out.println(head.toString());
         //removeDupsWithBuffer(head);

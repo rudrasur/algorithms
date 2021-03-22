@@ -11,4 +11,13 @@ public class ListUtils {
         }
         return head.next;
     }
+
+    public static ListNode getTail(ListNode head) {
+        ListNode tail = head;
+        while(head != null) {
+            tail = head;
+            head = head.next;
+        }
+        return tail;
+    }
 }

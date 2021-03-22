@@ -3,13 +3,8 @@ package linkedlist;
 public class SumLists {
 
     public static void main(String[] args) {
-        ListNode a = new ListNode(7
-                    ,new ListNode(1
-                    ,new ListNode(6,null)));
-
-        ListNode b = new ListNode(5
-                ,new ListNode(9
-                ,new ListNode(2,null)));
+        ListNode a = ListUtils.creatList(new Integer[]{7,1,6});
+        ListNode b = ListUtils.creatList(new Integer[]{5,9,2});
 
         System.out.println(sumLists(a, b));
         System.out.println(addLists(a, b, 0));

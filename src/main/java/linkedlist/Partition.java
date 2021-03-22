@@ -3,14 +3,7 @@ package linkedlist;
 public class Partition {
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(3
-                , new ListNode(5
-                , new ListNode(8
-                , new ListNode(5
-                , new ListNode(10
-                , new ListNode(2
-                , new ListNode(1
-                , null )))))));
+        ListNode head = ListUtils.creatList(new Integer[]{3,5,8,5,10,2,1});
 
         System.out.println(head);
         System.out.println(partition(head, 5)
