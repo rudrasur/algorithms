@@ -21,7 +21,7 @@ public class MidElementStack {
         System.out.println("t: " + s.peek() + ", m: " + s.findMiddle());
         s.pop(); // t:3, m: 2
         System.out.println("t: " + s.peek() + ", m: " + s.findMiddle());
-        s.pop(); // t: 2, m: 1
+        s.pop(); // t:2, m: 1
         System.out.println("t: " + s.peek() + ", m: " + s.findMiddle());
         s.pop(); // t: 1, m: 1
         System.out.println("t: " + s.peek() + ", m: " + s.findMiddle());
@@ -74,21 +74,6 @@ public class MidElementStack {
             throw new EmptyStackException();
         }
         return mid.data;
-    }
-
-    public void deleteMiddle() {
-        if (mid == null) {
-            throw new EmptyStackException();
-        }
-        if (head.size == 1) {
-            head = tail = mid = null;
-        }
-        head.size--;
-        head.next = mid.next;
-        tail.previous = mid.previous;
-        if (head.size % 2 == 0 && mid.previous != null) {
-            mid = mid.previous;
-        }
     }
 
     public Integer peek() {
