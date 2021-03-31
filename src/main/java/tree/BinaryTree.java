@@ -1,11 +1,15 @@
 package tree;
 
+import java.util.Stack;
+
 public class BinaryTree<T> {
 
     BTNode<T> root;
 
     public BinaryTree(T key) {
         root = new BTNode<T>(key);
+    }
+    public BinaryTree() {
     }
 
     public static void main(String[] args) {
@@ -17,6 +21,8 @@ public class BinaryTree<T> {
         tree.preOrder(tree.root);
         System.out.println();
         tree.inOrder(tree.root);
+        System.out.println();
+        tree.inOrderWithoutRecursion(tree.root);
         System.out.println();
         tree.postOrder(tree.root);
 
@@ -37,6 +43,22 @@ public class BinaryTree<T> {
         inOrder(node.left);
         System.out.print(node.key + "  ");
         inOrder(node.right);
+    }
+
+    public void inOrderWithoutRecursion(BTNode<T> node) {
+        Stack<BTNode<T>> st = new Stack<>();
+        if (node == null) {
+            return;
+        }
+        while(node != null || !st.isEmpty()) {
+            while (node != null) {
+                st.push(node);
+                node = node.left;
+            }
+            node = st.pop();
+            System.out.print(node.key + "  ");
+            node = node.right;
+        }
     }
 
     public void postOrder(BTNode node) {

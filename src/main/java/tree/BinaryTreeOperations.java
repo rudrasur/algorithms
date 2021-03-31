@@ -37,6 +37,7 @@ public class BinaryTreeOperations {
                 7   12 15
          */
         tree.inOrder(tree.root);
+        nthNodeInOrder(tree.root, 4);
     }
 
     private static void insertLevelOrder(BinaryTree<Integer> tree, int key) {
@@ -117,6 +118,22 @@ public class BinaryTreeOperations {
             } else {
                 q.add(temp.right);
             }
+        }
+    }
+
+    public static void nthNodeInOrder(BTNode node, int n) {
+        if (node == null) {
+            return;
+        }
+        int count = 0;
+        while (node != null) {
+            nthNodeInOrder(node.left, n);
+            count++;
+            if (count == n) {
+                System.out.println("Node of " + n + " is " + node.key);
+                return;
+            }
+            nthNodeInOrder(node.right, n);
         }
     }
 }
