@@ -1,22 +1,18 @@
 package graph;
 
-import tree.BTNode;
-import tree.BinaryTree;
-
 import java.util.LinkedList;
 
 public class RouteBetweenNodes {
 
     public static void main(String[] args) {
 
-        GraphNode<Integer> _1 = new GraphNode<>(1);
+        GraphNode<Integer> root = new GraphNode<>(1);
         GraphNode<Integer> _2 = new GraphNode<>(2);
         GraphNode<Integer> _3 = new GraphNode<>(3);
         GraphNode<Integer> _4 = new GraphNode<>(4);
         GraphNode<Integer> _5 = new GraphNode<>(5);
         GraphNode<Integer> _6 = new GraphNode<>(6);
 
-        GraphNode<Integer> root = _1;
         root.adjacents.add(_2);
         root.adjacents.add(_3);
         root.adjacents.add(_4);
@@ -27,7 +23,7 @@ public class RouteBetweenNodes {
         _3.adjacents.add(_6);
         _5.adjacents.add(_6);
 
-        //System.out.println(checkPath(_1, _6)); //True
+        //System.out.println(checkPath(root, _6)); //True
         System.out.println(checkPath(_4, _2)); // false
 
     }
@@ -36,6 +32,7 @@ public class RouteBetweenNodes {
         if (start == end) {
             return true;
         }
+
         LinkedList<GraphNode<Integer>> q = new LinkedList<>();
         q.add(start);
         start.status = Status.Visiting;
@@ -52,8 +49,8 @@ public class RouteBetweenNodes {
                         q.add(v);
                     }
                 }
+                u.status = Status.Visited;
             }
-            u.status = Status.Visited;
         }
         return false;
     }

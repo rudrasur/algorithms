@@ -8,4 +8,8 @@ public class BTNode<T> {
     public BTNode(T item) {
         key = item;
     }
+
+    public T getKey() {
+        return key;
+    }
 }
